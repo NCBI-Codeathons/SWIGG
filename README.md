@@ -8,10 +8,10 @@ Aim 1: Build a graph of the MHC region in the human genome using the 8 alternati
 
 Aim 2: Visualize this graph!
 
-Aim 3: Validate how well the graph representation works using simulations (deleting/inserting/mutating bases from these alternative reference sequences.
+Aim 3: Validate how well the graph representation works using simulations (deleting/inserting/mutating bases from these alternative reference sequences) or sequences from alternative dataset (1kg).
 
 Aim 4: Extend to another region, or use alternative dataset (1kg) to train/construct the graph.
 
 ## Initial Backbone Algorithm Idea - Common K-mers
 
-![K-mer idea](https://i.ibb.co/L5p0vJv/Untitled-presentation.jpg)
+![K-mer idea](kmer_idea.jpg)
