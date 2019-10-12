@@ -4,22 +4,29 @@ Graph Genomes are so HOT right now.  But they're also scary. (See below for my p
 
 ![hot and scary](hot_and_scary.jpg)
 
-We hope to show that you don't need massive amounts of compute and super fancy algorithms to find graph genomes useful.
+We hope to show that **you don't need massive amounts of compute and super fancy algorithms to find graph genomes useful.**
 
-We can construct graph genomes of a small portion of the genome that can still lead to interesting insights and can be built, rendered, and analyzed using memory and compute power equivalent to that of a local-CPU.
+We can construct graph genomes of a small portion of the genome that can still lead to interesting insights and can be built, rendered, and analyzed using **memory and compute power equivalent to that of a local-CPU.**  We also want to be able to use **publicly accessible, easy-to-obtain data.**
 
 ## Aims
 
-We want to be able to build a graph representation of and visualize a highly variable portion of the genome.
+We want to be able to build a graph representation of and visualize genomes (or portions of genomes) where structural variation might be a major contributor to overall variation.
 
-Aim 1: Build a graph of the MHC region in the human genome using the 8 alternative sequences from HGR38.
+Aim 1: Build a graph representation of a genome (or part of one).
 
 Aim 2: Visualize this graph!
 
-Aim 3: Validate how well the graph representation works using simulations (deleting/inserting/mutating bases from these alternative reference sequences) or sequences from alternative dataset (1kg).
+Aim 3: Validate how well the graph representation works using simulations (deleting/inserting/mutating bases from these alternative reference sequences) or sequences from alternative dataset.
 
-Aim 4: Extend to another region, or use alternative dataset (1kg) to train/construct the graph.
+Aim 4: Extend to another region, or use alternative dataset to train/construct the graph.
 
+## Data
+
+- 8 alternative MHC sequences from HGR38.
+
+- Los Alamos Labs list of HIV sequences.
+
+- Yeast genome?
 
 ## Algorithm
 
@@ -67,9 +74,11 @@ We want to experiment with different k values.
 
 ### Graph Rendering
 
-We used gephi to visualize this graph. We use the ??? settings, which optimizes graphs like this for human viewing (using physics-based rules to maximize distance between "strands".
+We used gephi to visualize this graph. We use the ??? settings, which optimizes graphs like this for human viewing, using physics-based rules to maximize distance between "strands".  Here are some examples below (MHC region subsampled, HIV)
 
-![graph](graph.jpg)
+![mhc graph](mhc_graph.jpg)
+
+![hiv graph](HIV_graph.jpg)
 
 ### Understanding new sequences from the model.
 
