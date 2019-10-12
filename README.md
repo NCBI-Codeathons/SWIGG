@@ -1,4 +1,4 @@
-# Quick and Dirty Graph Genomes
+# Quick and Dirty Graph Genomes (DirtyG)
 
 Graph Genomes are so HOT right now.  But they're also scary. (See below for my personal opinion of a good symbol of hot and scary.)
 
@@ -78,7 +78,7 @@ We used gephi to visualize this graph. We use the ??? settings, which optimizes 
 
 ![mhc graph](mhc_graph.jpg)
 
-![hiv graph](HIV_graph.jpg)
+![hiv graph](hiv_graph.jpg)
 
 ### Understanding new sequences from the model.
 
