@@ -23,12 +23,12 @@ Aim 4: Extend to another region, or use alternative dataset (1kg) to train/const
 
 ## Algorithm
 
-## Initial Algorithm Idea: K-mers
+### Initial Algorithm Idea: K-mers
 
 ![K-mer idea](kmer_idea.jpg)
 
 
-## Graph Representation
+### Graph Representation
 
 Starting with a list of sequences
 
@@ -57,7 +57,7 @@ We create a table of every possible kmer in every sequence.
 
 ![kmers](to_edge_list.png)
 
-### Next steps
+#### Next steps
 
 We want to be able to collapse all kmers that are directly next to each other (ie ATTTGGTTAA, TTTGGTTAAG, TTGGTTAAGC becomes ATTTGGTTAAGC)
 
@@ -65,12 +65,12 @@ We also want to rid this graph of cycles for easier downstream processing.
 
 We want to experiment with different k values.
 
-## Graph Rendering
+### Graph Rendering
 
 We used gephi to visualize this graph. We use the ??? settings, which optimizes graphs like this for human viewing (using physics-based rules to maximize distance between "strands".
 
 ![graph](graph.jpg)
 
-## Understanding new sequences from the model.
+### Understanding new sequences from the model.
 
 We would like to be able to use this graph model to be able to analyze a new sequence, and understand where it's structural variation occurs (ie which "path" on the graph it follows"). 
