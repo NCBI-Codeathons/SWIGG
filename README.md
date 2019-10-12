@@ -78,6 +78,9 @@ We used gephi to visualize this graph. We use the ??? settings, which optimizes 
 
 ![mhc graph](mhc_graph.jpg)
 
+![mhc graph2](mhc_2.jpg)
+
+
 ![hiv graph](hiv_graph.jpg)
 
 ### Understanding new sequences from the model.
