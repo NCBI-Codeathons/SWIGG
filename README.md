@@ -47,19 +47,29 @@ For data to construct the graph, we used the alternative sequences of the MHC re
 
 ### Build and Render Graphs
 In order to build a graph, you can run quickgg.py with the following arguments:
-`--kmer-length (-k)`: the minimum length of a k-mer.
+`--kmer-length (-k)`: The minimum length of a k-mer.
 
-`--fasta (-f)`: a list of fasta sequence file locations.
-
-`--repeat_threshold_within (-rw)`: The maximum number of repeats within a single sequence for a k-mer to be considered "unique" within that sequence.
-
-`--repeat_threshold_across (-ra)`: The maximum number of repeats within any sequence across all sequences for a k-mer to be kept.
-
-`--repeat_threshold_across (-out)`: The maximum number of repeats within any sequence across all sequences for a k-mer to be kept.
+`--fasta (-f)`: List of fasta sequence file locations.
 
 `--out (-o)`: File location for the output edge file (csv format) to be written.
 
-#### Example use:
+`--repeat_threshold_within (-rw)`: The maximum number of repeats within a single sequence for a k-mer to be considered "unique" within that sequence.  (See example below)
+
+`--repeat_threshold_across (-ra)`: The maximum number of repeats within any sequence for a k-mer to be kept (see example below)
+
+`--threshold (-t)`: The number of sequences a k-mer must occur in in order to be kept (see example below).
+
+#### Example
+
+Let's say we have chosen kmer-length=5, repeat_threshold_within=1, and repeat_threshold_across=2, and threshold=2.  We choose k=5.
+
+AAAATGTGAATTTTAAAATTTT: **'AAAATG'**, 'AAATGT', 'AATGTG', 'ATGTGA', 'TGTGAA', 'GTGAAT', 'TGAATT', 'GAATTT', 'AATTTT', 'ATTTTA', 'TTTTAA', 'TTTAAA', 'TTAAAA', 'TAAAAT', 'AAAATT', 'AAATTT'
+
+AAAATGAAAATTTAAAAATTT: **'AAAATG'**, 'AAATGA', 'AATGAA', 'ATGAAA', 'TGAAAA', 'GAAAAT', 'AAAATT', 'AAATTT', 'AATTTA', 'ATTTAA', 'TTTAAA', 'TTAAAA', 'TAAAAA', 'AAAAAT', 'AAAATT'
+
+AAAATGTTTAAATTTTAAATTTT: 'AAAATG', 'AAATGT', 'AATGTT', 'ATGTTT', 'TGTTTA', 'GTTTAA', 'TTTAAA', 'TTAAAT', 'TAAATT', 'AAATTT', 'AATTTT', 'ATTTTA', 'TTTTAA', 'TTTAAA', 'TTAAAT', 'TAAATT', 'AAATTT'
+
+#### Use Case
 
 ```
 # Through GitHub Repo and meeting software requirements
