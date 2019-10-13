@@ -62,15 +62,43 @@ In order to build a graph, you can run quickgg.py with the following arguments:
 ```
 #### Example
 
-Let's say we have chosen kmer-length=5, repeat_threshold_within=1, and repeat_threshold_across=2, and threshold=2.  We choose k=5.
+The various threshold parametrs are a bit confusing, so we give an example of the workflow.  Let's say we have chosen `kmer-length=2`, `repeat_threshold_within=1`, and `repeat_threshold_across=2`, and `threshold=2`.  The k-mers found in each sequence are the following (with k-mers conserved across sequences bolded).
 
-AAAATGTGAATTTTAAAATTTT: **'AAAATG'**, 'AAATGT', 'AATGTG', 'ATGTGA', 'TGTGAA', 'GTGAAT', 'TGAATT', 'GAATTT', 'AATTTT', 'ATTTTA', 'TTTTAA', 'TTTAAA', 'TTAAAA', 'TAAAAT', 'AAAATT', 'AAATTT'
+```
+GGAATAAGAAGG: GG, GA, AA, AT, TA, AA, AG, GA, AA, AG, GG
 
+GGTAATAAGG: GG, GT, TA, AA, AT, TA, AA, AA, AG, GG
 
-AAAATGAAAATTTAAAAATTT: **'AAAATG'**, 'AAATGA', 'AATGAA', 'ATGAAA', 'TGAAAA', 'GAAAAT', 'AAAATT', 'AAATTT', 'AATTTA', 'ATTTAA', 'TTTAAA', 'TTAAAA', 'TAAAAA', 'AAAAAT', 'AAAATT'
+GGTGGTAA: GG, GT, TG, GG, GT, TA, AA
+```
 
+Some of these k-mers are only found in one sequence (threshold) so we throw them out.
 
-AAAATGTTTAAATTTTAAATTTT: 'AAAATG', 'AAATGT', 'AATGTT', 'ATGTTT', 'TGTTTA', 'GTTTAA', 'TTTAAA', 'TTAAAT', 'TAAATT', 'AAATTT', 'AATTTT', 'ATTTTA', 'TTTTAA', 'TTTAAA', 'TTAAAT', 'TAAATT', 'AAATTT'
+```
+AATAAGAA: GG, GA, AA, AT, TA, AA, AG, AA,  AG, GG
+
+GGTAATAAGG: GG, GT, TA, AA, AT, TA, AA, AG, GG
+
+GGTGGTAA: GG, GT, GG, GT, TA, AA
+```
+
+GG occurs more than 1 time (repeat_threshold_within) so we throw that out.
+
+AATAAGAA: GA, AA, AT, TA, AA, AG, AA,  AG
+
+GGTAATAAGG: GT, TA, AA, AT, TA, AA, AG
+
+GGTGGTAA: GT, GT, TA, AA
+
+AA occurs more than 2 times (repeat_threshold_across) in at least one sequence (sequence 1), so we throw that out.  We end up with the following k-mers for each of the sequences:
+
+```
+AATAAGAA: GA, AT, TA, AG,  AG
+
+GGTAATAAGG: GT, TA, AT, TA, AG
+
+GGTGGTAA: GT, GT, TA
+```
 
 #### Use Case
 
