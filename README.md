@@ -73,7 +73,7 @@ We want to experiment with different k values.
 
 ### Graph Rendering
 
-We used gephi to visualize this graph. We use the ??? settings, which optimizes graphs like this for human viewing, using physics-based rules to maximize distance between "strands".  Here are some examples below (MHC region subsampled, HIV)
+We used Gephi to visualize this graph. We use the ??? settings, which optimizes graphs like this for human viewing, using physics-based rules to maximize distance between "strands".  Here are some examples below (MHC region subsampled, HIV)
 
 ## Future Work
 This work can then be extrapolated to 
