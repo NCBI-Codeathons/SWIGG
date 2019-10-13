@@ -42,12 +42,31 @@ The following commands can be executed to run the Docker image -
   
 Follow the **simple three step process** to **build and visualize** beautiful graphs using a list of fasta sequences. For our example, we use a region known to have high variation across humans - the MHC gene region which is 4.5Mb in size and known ot have conserved and variable regions.
 
-### Download Test Data
-For test data, we will download and process seven alternative contigs of MHC sequences available from the GRCh38 genome.
-- Add Reference of dataset download
+### Download Data
+For data to construct the graph, we used the alternative sequences of the MHC region given in the latest reference Human Genome (HGR38). These were downloaded using NCBI accession numbers [GL000250](https://www.ncbi.nlm.nih.gov/nuccore/GL000250/), [GL000251](https://www.ncbi.nlm.nih.gov/nuccore/GL000251/), [GL000253](https://www.ncbi.nlm.nih.gov/nuccore/GL000253/), [GL000254](https://www.ncbi.nlm.nih.gov/nuccore/GL000254/), [GL000255](https://www.ncbi.nlm.nih.gov/nuccore/GL000255/) and [GL000256](https://www.ncbi.nlm.nih.gov/nuccore/GL000255/).
 
 ### Build and Render Graphs
-We used Gephi to visualize this edge list that was created by . We use the ??? settings, which optimizes graphs like this for human visualization
+In order to build a graph, you can run quickgg.py with the following arguments:
+`--kmer-length (-k)`: the minimum length of a k-mer.
+
+`--fasta (-f)`: a list of fasta sequence file locations.
+
+`--fasta (-f)`: a list of fasta sequence file locations.
+
+`--repeat_threshold_within (-rw)`: The maximum number of repeats within a single sequence for a k-mer to be considered "unique" within that sequence.
+
+`--repeat_threshold_across (-ra)`: The maximum number of repeats within any sequence across all sequences for a k-mer to be kept.
+
+`--repeat_threshold_across (-out)`: The maximum number of repeats within any sequence across all sequences for a k-mer to be kept.
+
+`--out (-o)`: File location for the output edge file (csv format) to be written.
+
+#### Example use:
+
+```
+python quickgg.py -k 50 -t 2 -rw 1 -ra 1 -f 
+GL000250.fa GL000251.fa GL000252.fa GL000253.fa GL000254.fa GL000255.fa GL000256.fa -o myedges.txt
+```
 
 ## Methods
 ![QuickGG_Workflow](documentation/images/quickgg_flowchard.png)
