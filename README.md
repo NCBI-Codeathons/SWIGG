@@ -129,12 +129,11 @@ docker pull swigg:0.0.1
 ### Initial Algorithm Idea: K-mers
 ![K-mer graph_concept](documentation/images/kmer_graph.png)
 
+## Results (Graphs)
 
-## Future Direction
-
-1. Many k-mers happen to be adjacent to each other, which actually is just one large k-mer. We would like to merge these small k-mers to a merge larger k-mers.
-2. We would also like to further improve the graph by iterating over local sequences
-3. Now that we have a tool for generating genome graphs quickly and efficiently, it’s desirable to find the optimal parameters, e.g. size of kmer, occurrence of a kmer to determine whether it is to be retained or not. This remains challenging because there is no simple way to evaluate genome graphs. Numbers of vertices and edges can be starting points. We would like to have comprehensive investigation of potential factors.
+![mhc graph](documentation/images/mhc_graph.jpg)
+<br/>
+Fig: Genome graph built using 128-mers and seven alternative contigs of MHC gene
 
 ## Other Graphs constructed
 This following are other graphs created using different set of parameters
@@ -146,6 +145,12 @@ Fig: Graph for MHC region with 31-mers where k-mers are present in at least 5/7 
 ![hiv graph](documentation/images/hiv_graph.jpg)
 </br> 
 Fig: Graph for HIV viral genome (10kb) for ten genomes using 10-mers.
+
+## Future Direction
+
+1. Many k-mers happen to be adjacent to each other, which actually is just one large k-mer. We would like to merge these small k-mers to a merge larger k-mers.
+2. We would also like to further improve the graph by iterating over local sequences
+3. Now that we have a tool for generating genome graphs quickly and efficiently, it’s desirable to find the optimal parameters, e.g. size of kmer, occurrence of a kmer to determine whether it is to be retained or not. This remains challenging because there is no simple way to evaluate genome graphs. Numbers of vertices and edges can be starting points. We would like to have comprehensive investigation of potential factors.
 
 ## Understanding new sequences from the model.
 
