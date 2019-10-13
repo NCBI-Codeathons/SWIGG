@@ -1,26 +1,20 @@
-# Quick and Dirty Graph Genomes (DirtyG)
+# Quick Graphs for Genomes (QuickGG)
+<img src="documentation/images/hiv_graph.jpg" align="left" height="150" width="150" ></a>
 
-Graph Genomes are so HOT right now.  But they're also scary. (See below for my personal opinion of a good symbol of hot and scary.)
+An automated pipeline to build graphs using kmer approach.
+There are several sequences across human genome, viruses and also among other species that have conserved and variable regions. These regions of are interest to the scientific community because of its dynamic characteristic. We want to be able to build graphs using alternative references that are representative of sequence of interest and also **fast**. One of the most common steps in building graphs requires performing multiple sequence alignment (MSA) which is computationally expensive. This step can be avoided by uisng a kmer based approach using the _**QuickGG**_ tool. 
 
-![hot and scary](documentation/images/hot_and_scary.jpg)
+![mhc graph](documentation/images/mhc_graph.jpg)
+Fig: Genome graph of MHC gene built using 128-mers and seven alternative contigs of MHC gene 
 
-We hope to show that **you don't need massive amounts of compute and super fancy algorithms to find graph genomes useful.**
+## Objective 
+
+The primary objective is to build an open-source platorm tool that builds a genome graph by eluding the use of massive amounts of compute and/or advanced algorithms.
 
 We can construct graph genomes of a small portion of the genome that can still lead to interesting insights and can be built, rendered, and analyzed using **memory and compute power equivalent to that of a local-CPU.**  We also want to be able to use **publicly accessible, easy-to-obtain data.**
 
-## Aims
-
-We want to be able to build a graph representation of and visualize genomes (or portions of genomes) where structural variation might be a major contributor to overall variation.
-
-Aim 1: Build a graph representation of a genome (or part of one).
-
-Aim 2: Visualize this graph!
-
-Aim 3: Validate how well the graph representation works using simulations (deleting/inserting/mutating bases from these alternative reference sequences) or sequences from alternative dataset.
-
-Aim 4: Extend to another region, or use alternative dataset to train/construct the graph.
-
-## Data
+## Getting Started
+### Download Test Data
 
 - 8 alternative MHC sequences from HGR38.
 
@@ -28,12 +22,11 @@ Aim 4: Extend to another region, or use alternative dataset to train/construct t
 
 - Yeast genome?
 
-## Algorithm
+## Methods
 
 ### Initial Algorithm Idea: K-mers
 
 ![K-mer idea](documentation/images/kmer_idea.jpg)
-
 
 ### Graph Representation
 
@@ -76,7 +69,8 @@ We want to experiment with different k values.
 
 We used gephi to visualize this graph. We use the ??? settings, which optimizes graphs like this for human viewing, using physics-based rules to maximize distance between "strands".  Here are some examples below (MHC region subsampled, HIV)
 
-![mhc graph](documentation/images/mhc_graph.jpg)
+## Future Work
+This work can then be extrapolated to 
 
 ![mhc graph2](documentation/images/mhc_2.jpg)
 
