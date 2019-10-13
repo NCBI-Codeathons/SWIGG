@@ -1,8 +1,9 @@
+<img src="documentation/images/hiv_graph.jpg" align="left" height="150" width="150" ></a> 
 # SWIGG - SWIft Genomes in a Graph
 
 A pipeline for making SWIft Genomes in a Graph (SWIGG) using k-mers. We follow a multiscale approach to build genome graphs in an hierarchial way.
 
-<img src="documentation/images/hiv_graph.jpg" align="left" height="150" width="150" ></a>
+
 <br/><br/><br/><br/><br/><br/>
 
 ## Abstract
