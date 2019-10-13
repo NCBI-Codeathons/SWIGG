@@ -1,14 +1,18 @@
-# QuickGG - Quick Graphs for Genomes
+# SWIGG - SWIft Genomes in a Graph
+
+A pipeline for making SWIft Genomes in a Graph (SWIGG) using k-mers. We follow a multiscale approach to build genome graphs in a hierarchial way.
 <img src="documentation/images/hiv_graph.jpg" align="left" height="150" width="150" ></a>
 <br/><br/><br/><br/><br/><br/>
 
 ## Abstract
 An automated pipeline to build graphs quick using kmer approach.
-There are several sequences across human genome, viruses and also among other species that have conserved and variable regions. These regions of are interest to the scientific community because of its dynamic characteristic. We want to be able to build graphs using alternative references that are representative of sequence of interest and also **fast**. One of the most common steps in building graphs requires performing multiple sequence alignment (MSA) which is computationally expensive. This step can be avoided by uisng a kmer based approach using the _**QuickGG**_ tool. 
+There are several sequences across human genome, viruses and also among other species that are known to have **conserved** and **variable** regions. These regions of are interest to the scientific community because of its dynamic characteristics. We want to be able to build graphs using alternative references that are representative of sequence of interest and also **fast**. Building graphs for genomes, or large genomic regions is very computationally expensive and so we use a multi-scale approach to build genome graphs in a hierarchial way. The idea is to create a sparse representation for multiple sequence alignment so we can visualize large scale difference such as stuctural variants in a succinct way. By representing a genome with graphs, we can create an anchor graph, which can then be further iteratively improved to include local sequence differences and possibly help us with genotyping and identifying true variants.
+
+_**SWIGG**_ is a fast an efficient tool that can do this. The following is a graph created using SWIGG in less than three minutes that use 128-mers and builds on seven alternative references of MHC region (4.5Mb in size)
 
 ![mhc graph](documentation/images/mhc_graph.jpg)
-
-Fig: Genome graph of MHC gene built using 128-mers and seven alternative contigs of MHC gene
+<br/>
+Fig: Genome graph built using 128-mers and seven alternative contigs of MHC gene
 
 ## Objective 
 
@@ -23,7 +27,7 @@ For test data, we will download and process seven alternative contigs of MHC seq
 - Add Reference of dataset download
 ### Requirements
 - Python 3.7
-- Jellyfish (k-mer counter) - **TBCited**
+
 ### Build Graphs
 - Alternatively, the following docker image and CWLTool can be used
 Running command (CWL, Docker Image, etc.)
