@@ -5,51 +5,45 @@
     <title>01. Create Graph. Vivagraph SVG tutorial.</title>
     <script type="text/javascript" src="../../dist/vivagraph.js"></script>
     <script type="text/javascript">
+
         function main() {
+
+            var readSingleFile = (e) => {
+
+                var reader = new FileReader()
+                reader.onloadend = (e) => {
+                    //console.log(reader)
+                    var jsonObj = JSON.parse(reader.result)
+
+                    nodeObj = jsonObj.gexf.graph.nodes.node
+                    edgeObj = jsonObj.gexf.graph.edges.edge
+
+                    //console.log(nodeObj)
+                    console.log(edgeObj)
+
+                    // Step 1. We create a graph object.
+                    var graph = Viva.Graph.graph();
+
+                    // Step 2. We add nodes and edges to the graph:
+                    edgeObj.map((el, idx) => {
+
+                        graph.addLink(el['@source'], el['@target']);
+                        console.log(el['@source'])
+                    })
+
+
+                    // Step 3. Render the graph.
+                    var renderer = Viva.Graph.View.renderer(graph);
+                    renderer.run();
+                }
+                reader.readAsText(e.target.files[0])
+            }
 
             document.getElementById('fileinput').addEventListener('change', readSingleFile, false);
 
-            function readSingleFile(e) {
-
-            var reader = new FileReader()
-            reader.onloadend = function(e){
-            console.log(reader)
-            var jsonObj = JSON.parse(reader.result)
-
-            console.log(jsonObj)
-            }
-            reader.readAsText(e.target.files[0])
-            }
 
 
-            /*var openFile = function(event) {
-                var input = event.target;
-                var reader = new FileReader();
-                reader.onload = function(){
-                    var dataURL = reader.result;
-                    var output = document.getElementById('output');
-                    output.src = dataURL;
-                };
-                reader.readAsDataURL(input.files);
-            };*/
-
-            //alert (nodeObj);
-            /*var oParser = new DOMParser();
-            var oDOM = oParser.parseFromString(sMyString, "application/xml");
-            document.write(5+6);*/
-            //import { nodeObj, edgeObj } from '/Users/sophia/PycharmProjects/QuickGraph/readJSON.js'*/
-
-            /*var i;
-            for (i = 0; i < nodeObj.length; i++) {
-                console.log(nodeObj[i]['@id'])
-            }
-
-            for (i = 0; i < edgeObj.length; i++) {
-                console.log(edgeObj[i]['@source'])
-                console.log(edgeObj[i]['@target'])
-            }*/
-
-            // Step 1. We create a graph object.
+            /*// Step 1. We create a graph object.
             var graph = Viva.Graph.graph();
 
             // Step 2. We add nodes and edges to the graph:
@@ -58,7 +52,7 @@
 
             // Step 3. Render the graph.
             var renderer = Viva.Graph.View.renderer(graph);
-            renderer.run();
+            renderer.run();*/
         }
     </script>
     <style type="text/css" media="screen">
