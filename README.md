@@ -82,7 +82,7 @@ GGTAATAAGG: GG, GT, TA, AA, AT, TA, AA, AG, GG
 GGTGGTAA: GG, GT, GG, GT, TA, AA
 ```
 
-GG occurs more than 1 time (repeat_threshold_within) so we throw that out.
+```GG``` occurs more than 1 time (repeat_threshold_within) so we throw that out.
 
 ```
 AATAAGAA: GA, AA, AT, TA, AA, AG, AA,  AG
