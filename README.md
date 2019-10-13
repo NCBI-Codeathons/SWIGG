@@ -32,7 +32,7 @@ Running command (CWL, Docker Image, etc.)
 
 ### Initial Algorithm Idea: K-mers
 
-![K-mer idea](documentation/images/kmer_idea.jpg)
+![K-mer graph_concept](documentation/images/kmer_graph.png)
 
 ### Graph Representation
 
