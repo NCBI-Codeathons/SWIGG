@@ -2,7 +2,7 @@
 
 Graph Genomes are so HOT right now.  But they're also scary. (See below for my personal opinion of a good symbol of hot and scary.)
 
-![hot and scary](hot_and_scary.jpg)
+![hot and scary](documentation/images/hot_and_scary.jpg)
 
 We hope to show that **you don't need massive amounts of compute and super fancy algorithms to find graph genomes useful.**
 
@@ -32,37 +32,37 @@ Aim 4: Extend to another region, or use alternative dataset to train/construct t
 
 ### Initial Algorithm Idea: K-mers
 
-![K-mer idea](kmer_idea.jpg)
+![K-mer idea](documentation/images/kmer_idea.jpg)
 
 
 ### Graph Representation
 
 Starting with a list of sequences
 
-![sequences](sequences.png)
+![sequences](documentation/images/sequences.png)
 
 
 1. Find all possible k-mers (of a fixed k) in all possible sequences.
 
 We create a table of every possible kmer in every sequence.
 
-![kmers](pos.png)
+![kmers](documentation/images/pos.png)
 
 2. Find which k-mers are repeats (occur multiple times in the same sequence) and get rid of them.
 
-![kmers](pos_starts.png)
+![kmers](documentation/images/pos_starts.png)
 
 3. Find which k-mers occur in multiple sequences and keep them.
 
-![kmers](n_repeats.png)
+![kmers](documentation/images/n_repeats.png)
 
 4. Order the k-mers within each sequence 
 
-![kmers](to_order.png)
+![kmers](documentation/images/to_order.png)
 
 5. Covert this to a graph-structure. (vertex: {connected vertices})
 
-![kmers](to_edge_list.png)
+![kmers](documentation/images/to_edge_list.png)
 
 #### Next steps
 
@@ -76,12 +76,12 @@ We want to experiment with different k values.
 
 We used gephi to visualize this graph. We use the ??? settings, which optimizes graphs like this for human viewing, using physics-based rules to maximize distance between "strands".  Here are some examples below (MHC region subsampled, HIV)
 
-![mhc graph](mhc_graph.jpg)
+![mhc graph](documentation/images/mhc_graph.jpg)
 
-![mhc graph2](mhc_2.jpg)
+![mhc graph2](documentation/images/mhc_2.jpg)
 
 
-![hiv graph](hiv_graph.jpg)
+![hiv graph](documentation/images/hiv_graph.jpg)
 
 ### Understanding new sequences from the model.
 
