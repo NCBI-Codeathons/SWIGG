@@ -51,8 +51,6 @@ In order to build a graph, you can run quickgg.py with the following arguments:
 
 `--fasta (-f)`: a list of fasta sequence file locations.
 
-`--fasta (-f)`: a list of fasta sequence file locations.
-
 `--repeat_threshold_within (-rw)`: The maximum number of repeats within a single sequence for a k-mer to be considered "unique" within that sequence.
 
 `--repeat_threshold_across (-ra)`: The maximum number of repeats within any sequence across all sequences for a k-mer to be kept.
@@ -64,8 +62,22 @@ In order to build a graph, you can run quickgg.py with the following arguments:
 #### Example use:
 
 ```
-python quickgg.py -k 50 -t 2 -rw 1 -ra 1 -f 
-GL000250.fa GL000251.fa GL000252.fa GL000253.fa GL000254.fa GL000255.fa GL000256.fa -o myedges.txt
+# Through GitHub Repo and meeting software requirements
+git clone https://github.com/NCBI-Codeathons/SWIGG.git
+cd SWIGG/
+
+python3 code/swigg.py -k 50 -t 2 -rw 1 -ra 1 -o output_mhc_alt \
+-f test/fasta/GL000250.fa \
+test/fasta/GL000251.fa \
+test/fasta/GL000252.fa \
+test/fasta/GL000253.fa \
+test/fasta/GL000254.fa \
+test/fasta/GL000255.fa \
+test/fasta/GL000256.fa 
+
+# Through Docker Image
+docker pull swigg:0.0.1
+
 ```
 
 ## Methods
