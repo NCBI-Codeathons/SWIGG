@@ -7,11 +7,11 @@ A pipeline for making SWIft Genomes in a Graph (SWIGG) using k-mers. We follow a
 
 ## Abstract
 An automated pipeline to build graphs quickly using kmer approach.
-There are regions across the human genome that are **conserved** among species while bearing modest amount of **variability**. The dynamic characteristics of these regions are suitable for understanding relationships of genome structure among individuals and/or organisms. Such relationships are best represented with grpahs. Building graphs for genomes, or large genomic regions is computationally  expensive. Using a multi-scale approach we creat a simple algorithm and tool to build genome graphs **fast**.
+There are regions across the human genome that are **conserved** among species while bearing modest amount of **variability**. The dynamic characteristics of these regions are suitable for understanding relationships of genome structure among individuals and/or organisms. Such relationships are best represented with grpahs. Building graphs for genomes, or large genomic regions is computationally  expensive. Using a multi-scale approach we created a simple algorithm and tool to build genome graphs **fast**.
 
-This approach captures variations in an hierarchial way. The idea is to create a sparse representation of large scale differences (anchors) so as to allow visualizing the entire genome in a succinct way. These "anchored" graphs can then be further iteratively improved to include local sequence differences, and in turn, helps us with genotyping existing variants and identifying new variants in new genomes.
+This approach captures variations in an hierarchial way. The idea is to create a sparse representation of large scale differences (anchors) so as to allow visualizing the entire genome in a succinct way. These "anchored" graphs can then be further iteratively improved to include local sequence differences, and in turn, help us with genotyping existing variants and identifying new variants in new genomes.
 
-_**SWIGG**_ is a fast an efficient tool that can do this. The following is a graph created using SWIGG in less than three minutes that uses 128-mers and builds on seven alternative haplotypes of the human MHC region (4.5Mb in size)
+_**SWIGG**_ is a fast and efficient tool that can do this. The following is a graph created using SWIGG in less than three minutes that uses 128-mers and builds on seven alternative haplotypes of the human MHC region (4.5Mb in size).
 
 ![mhc graph](documentation/images/mhc_graph.jpg)
 <br/>
@@ -47,25 +47,50 @@ For data to construct the graph, we used the alternative sequences of the MHC re
 
 ### Build and Render Graphs
 In order to build a graph, you can run quickgg.py with the following arguments:
-`--kmer-length (-k)`: the minimum length of a k-mer.
+```
+`--kmer-length (-k)`: The minimum length of a k-mer.
 
-`--fasta (-f)`: a list of fasta sequence file locations.
-
-`--fasta (-f)`: a list of fasta sequence file locations.
-
-`--repeat_threshold_within (-rw)`: The maximum number of repeats within a single sequence for a k-mer to be considered "unique" within that sequence.
-
-`--repeat_threshold_across (-ra)`: The maximum number of repeats within any sequence across all sequences for a k-mer to be kept.
-
-`--repeat_threshold_across (-out)`: The maximum number of repeats within any sequence across all sequences for a k-mer to be kept.
+`--fasta (-f)`: List of fasta sequence file locations.
 
 `--out (-o)`: File location for the output edge file (csv format) to be written.
 
-#### Example use:
+`--repeat_threshold_within (-rw)`: The maximum number of repeats within a single sequence for a k-mer to be considered "unique" within that sequence.  (See example below)
+
+`--repeat_threshold_across (-ra)`: The maximum number of repeats within any sequence for a k-mer to be kept (see example below)
+
+`--threshold (-t)`: The number of sequences a k-mer must occur in in order to be kept (see example below).
+```
+#### Example
+
+Let's say we have chosen kmer-length=5, repeat_threshold_within=1, and repeat_threshold_across=2, and threshold=2.  We choose k=5.
+
+AAAATGTGAATTTTAAAATTTT: **'AAAATG'**, 'AAATGT', 'AATGTG', 'ATGTGA', 'TGTGAA', 'GTGAAT', 'TGAATT', 'GAATTT', 'AATTTT', 'ATTTTA', 'TTTTAA', 'TTTAAA', 'TTAAAA', 'TAAAAT', 'AAAATT', 'AAATTT'
+
+
+AAAATGAAAATTTAAAAATTT: **'AAAATG'**, 'AAATGA', 'AATGAA', 'ATGAAA', 'TGAAAA', 'GAAAAT', 'AAAATT', 'AAATTT', 'AATTTA', 'ATTTAA', 'TTTAAA', 'TTAAAA', 'TAAAAA', 'AAAAAT', 'AAAATT'
+
+
+AAAATGTTTAAATTTTAAATTTT: 'AAAATG', 'AAATGT', 'AATGTT', 'ATGTTT', 'TGTTTA', 'GTTTAA', 'TTTAAA', 'TTAAAT', 'TAAATT', 'AAATTT', 'AATTTT', 'ATTTTA', 'TTTTAA', 'TTTAAA', 'TTAAAT', 'TAAATT', 'AAATTT'
+
+#### Use Case
 
 ```
-python quickgg.py -k 50 -t 2 -rw 1 -ra 1 -f 
-GL000250.fa GL000251.fa GL000252.fa GL000253.fa GL000254.fa GL000255.fa GL000256.fa -o myedges.txt
+# Through GitHub Repo and meeting software requirements
+git clone https://github.com/NCBI-Codeathons/SWIGG.git
+cd SWIGG/
+
+python3 code/swigg.py -k 50 -t 2 -rw 1 -ra 1 -o output_mhc_alt \
+-f test/fasta/GL000250.fa \
+test/fasta/GL000251.fa \
+test/fasta/GL000252.fa \
+test/fasta/GL000253.fa \
+test/fasta/GL000254.fa \
+test/fasta/GL000255.fa \
+test/fasta/GL000256.fa 
+
+# Through Docker Image
+docker pull swigg:0.0.1
+
 ```
 
 ## Methods
@@ -79,7 +104,7 @@ GL000250.fa GL000251.fa GL000252.fa GL000253.fa GL000254.fa GL000255.fa GL000256
 
 1. Many k-mers happen to be adjacent to each other, which actually is just one large k-mer. We would like to merge these small k-mers to a merge larger k-mers.
 2. We would also like to further improve the graph by iterating over local sequences
-3. 
+3. Now that we have a tool for generating genome graphs quickly and efficiently, it’s desirable to find the optimal parameters, e.g. size of kmer, occurrence of a kmer to determine whether it is to be retained or not. This remains challenging because there is no simple way to evaluate genome graphs. Numbers of vertices and edges can be starting points. We would like to have comprehensive investigation of potential factors.
 
 ## Other Graphs constructed
 This following are other graphs created using different set of parameters
@@ -95,3 +120,13 @@ Fig: Graph for HIV viral genome (10kb) for ten genomes using 10-mers.
 ## Understanding new sequences from the model.
 
 We would like to be able to use this graph model to be able to analyze a new sequence, and understand where it's structural variation occurs (ie which "path" on the graph it follows"). 
+
+## Graph Visualization
+We implemented an interactive large scale graph visualization web application to visualize the "k-mer" signature structure dynamically.  The direction of the arrow indicates the order of two "k-mer"s.  Each sequence segment is a node, and every pair is an edge in the graph. A file selection button is provided for uploading user-defined "k-mer" inputs.
+<img src="documentation/images/image1.png" align="left" ></a>
+<br/><br/><br/><br/><br/><br/>
+<img src="documentation/images/image2.png" align="left" ></a>
+<br/><br/><br/><br/><br/><br/>
+<img src="documentation/images/image3.png" align="left" ></a>
+<br/><br/><br/><br/><br/><br/>
+
