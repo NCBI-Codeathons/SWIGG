@@ -1,6 +1,6 @@
 # SWIGG - SWIft Genomes in a Graph
 
-A pipeline for making SWIft Genomes in a Graph (SWIGG) using k-mers. We follow a multiscale approach to build genome graphs in a hierarchial way.
+A pipeline for making SWIft Genomes in a Graph (SWIGG) using k-mers. We follow a multiscale approach to build genome graphs in an hierarchial way.
 
 <img src="documentation/images/hiv_graph.jpg" align="left" height="150" width="150" ></a>
 <br/><br/><br/><br/><br/><br/>
@@ -25,7 +25,8 @@ We can construct graph genomes of a small portion of the genome that can still l
 
 ## Getting Started
 
-### Meet the Software Requirements
+### Meet the Software Requirements OR Docker
+#### Software Requirements
 - Python 3.7
   - numpy (1.16.4)
   - pandas (0.24.2)
@@ -33,7 +34,7 @@ We can construct graph genomes of a small portion of the genome that can still l
   - argparse
   - collections
 - Gephi
-### Or Docker
+#### Docker
 - Alternatively, the following docker image can be used
 Follow the **simple three step process** to **build and visualize** beautiful graphs using a list of fasta sequences. For our example, we use a region known to have high variation across humans - the MHC gene region which is 4.5Mb in size and known ot have conserved and variable regions.
 
@@ -57,19 +58,17 @@ We used Gephi to visualize this edge list that was created by . We use the ??? s
 2. We would also like to further improve the graph by iterating over local sequences
 3. 
 
-### Graph Rendering
-
-
-
 ## Other Graphs constructed
-This work can then be extrapolated to 
+This following are other graphs created using different set of parameters
 
 ![mhc graph2](documentation/images/mhc_2.jpg)
 </br> 
+Fig: Graph for MHC region with 31-mers where k-mers are present in at least 5/7 alternative contigs.
 
 ![hiv graph](documentation/images/hiv_graph.jpg)
 </br> 
+Fig: Graph for HIV viral genome (10kb) for ten genomes using 10-mers.
 
-### Understanding new sequences from the model.
+## Understanding new sequences from the model.
 
 We would like to be able to use this graph model to be able to analyze a new sequence, and understand where it's structural variation occurs (ie which "path" on the graph it follows"). 
