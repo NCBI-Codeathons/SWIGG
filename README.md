@@ -3,11 +3,11 @@
 <br/><br/><br/><br/><br/><br/>
 
 ## Abstract
-An automated pipeline to build graphs using kmer approach.
+An automated pipeline to build graphs quick using kmer approach.
 There are several sequences across human genome, viruses and also among other species that have conserved and variable regions. These regions of are interest to the scientific community because of its dynamic characteristic. We want to be able to build graphs using alternative references that are representative of sequence of interest and also **fast**. One of the most common steps in building graphs requires performing multiple sequence alignment (MSA) which is computationally expensive. This step can be avoided by uisng a kmer based approach using the _**QuickGG**_ tool. 
 
 ![mhc graph](documentation/images/mhc_graph.jpg)
-Fig: Genome graph of MHC gene built using 128-mers and seven alternative contigs of MHC gene 
+Fig: Genome graph of MHC gene built using 128-mers and seven alternative contigs of MHC gene
 
 ## Objective 
 
@@ -16,13 +16,16 @@ The primary objective is to build an open-source platorm tool that builds a geno
 We can construct graph genomes of a small portion of the genome that can still lead to interesting insights and can be built, rendered, and analyzed using **memory and compute power equivalent to that of a local-CPU.**  We also want to be able to use **publicly accessible, easy-to-obtain data.**
 
 ## Getting Started
+Follow the simple three step process to build and visualize amazing graphs
 ### Download Test Data
-
-- 8 alternative MHC sequences from HGR38.
-
-- Los Alamos Labs list of HIV sequences.
-
-- Yeast genome?
+For test data, we will download and process seven alternative contigs of MHC sequences available from the GRCh38 genome.
+- Add Reference of dataset download
+### Requirements
+- Python 3.7
+- Jellyfish (k-mer counter) - **TBCited**
+### Build Graphs
+- Alternatively, the following docker image and CWLTool can be used
+Running command (CWL, Docker Image, etc.)
 
 ## Methods
 
