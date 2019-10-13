@@ -7,12 +7,13 @@ import pandas as pd
 
 from collections import Counter
 from Bio import SeqIO
+import networkx as nx
 
 parser = argparse.ArgumentParser(formatter_class=argparse.RawTextHelpFormatter, \
 description="""
 swiggy.py
 
-Given a list of fasta sequences, the script will produce an edge list of kmers chosen per various thresholds provided by user through arguments. This edge list can then be further processed to build graphs using visualizer such as Gephi.
+Given a list of fasta sequences, the script will produce an edge list of kmers chosen per various thresholds provided by user through arguments. This edge list is then further processed to create a graph (.gexf) file which can then be further visualized using graph visualizers such as Gephi.
 """)
 
 optional = parser._action_groups.pop()
@@ -37,7 +38,7 @@ required.add_argument("-ra", "--repeat_threshold_across", type=int,
                     help="required, threshold for filtering kmers that can be used for graph building across all the sequences we are looking at. If a certain kmer is chosen, but is present more than the threshold mentioned across all sequences, it will be discarded. This is important to reduce repeats and avoid cyclic graphs.",
                     required=True)
 required.add_argument("-o", "--out",
-                    help="required, path to output edge file",
+                    help='required, path to prefix of output file name. Two files will be created - 1. Edge file ".tsv" and 2. Graph file ".gexf" ',
                     required=True)
 
 ########################################################
@@ -131,5 +132,17 @@ edges_to_csv=pd.DataFrame(kmers_1)
 edges_to_csv.columns = ['kmer_1']
 edges_to_csv['kmer_2'] = edges_df_group['kmer_2'].apply(lambda x: list(x)[0]).values
 edges_to_csv['distance'] = edges_df_group['distance'].apply(np.mean).values
-edges_to_csv.to_csv(args.out, header=None, index_label=None)
+edges_to_csv.to_csv(args.out+'.tsv', sep="\t", header=None, index_label=None)
+
+# Creating graph file
+print("Creating graph file...", flush=True)
+
+G = nx.DiGraph()
+with open(args.out+'.tsv') as f:
+   for row in f:
+       row = row.strip().split()
+       G.add_edge(row[1], row[2])
+    
+nx.write_gexf(G, args.out+'.gexf')
+
 print("Success!", flush=True)
