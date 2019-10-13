@@ -1,6 +1,8 @@
-# Quick Graphs for Genomes (QuickGG)
+# QuickGG - Quick Graphs for Genomes
 <img src="documentation/images/hiv_graph.jpg" align="left" height="150" width="150" ></a>
+<br/><br/><br/><br/><br/><br/>
 
+## Abstract
 An automated pipeline to build graphs using kmer approach.
 There are several sequences across human genome, viruses and also among other species that have conserved and variable regions. These regions of are interest to the scientific community because of its dynamic characteristic. We want to be able to build graphs using alternative references that are representative of sequence of interest and also **fast**. One of the most common steps in building graphs requires performing multiple sequence alignment (MSA) which is computationally expensive. This step can be avoided by uisng a kmer based approach using the _**QuickGG**_ tool. 
 
