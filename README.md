@@ -1,68 +1,67 @@
-# Quick and Dirty Graph Genomes (DirtyG)
+# QuickGG - Quick Graphs for Genomes
+<img src="documentation/images/hiv_graph.jpg" align="left" height="150" width="150" ></a>
+<br/><br/><br/><br/><br/><br/>
 
-Graph Genomes are so HOT right now.  But they're also scary. (See below for my personal opinion of a good symbol of hot and scary.)
+## Abstract
+An automated pipeline to build graphs quick using kmer approach.
+There are several sequences across human genome, viruses and also among other species that have conserved and variable regions. These regions of are interest to the scientific community because of its dynamic characteristic. We want to be able to build graphs using alternative references that are representative of sequence of interest and also **fast**. One of the most common steps in building graphs requires performing multiple sequence alignment (MSA) which is computationally expensive. This step can be avoided by uisng a kmer based approach using the _**QuickGG**_ tool. 
 
-![hot and scary](hot_and_scary.jpg)
+![mhc graph](documentation/images/mhc_graph.jpg)
+Fig: Genome graph of MHC gene built using 128-mers and seven alternative contigs of MHC gene
 
-We hope to show that **you don't need massive amounts of compute and super fancy algorithms to find graph genomes useful.**
+## Objective 
+
+The primary objective is to build an open-source platorm tool that builds a genome graph by eluding the use of massive amounts of compute and/or advanced algorithms.
 
 We can construct graph genomes of a small portion of the genome that can still lead to interesting insights and can be built, rendered, and analyzed using **memory and compute power equivalent to that of a local-CPU.**  We also want to be able to use **publicly accessible, easy-to-obtain data.**
 
-## Aims
+## Getting Started
+Follow the simple three step process to build and visualize amazing graphs
+### Download Test Data
+For test data, we will download and process seven alternative contigs of MHC sequences available from the GRCh38 genome.
+- Add Reference of dataset download
+### Requirements
+- Python 3.7
+- Jellyfish (k-mer counter) - **TBCited**
+### Build Graphs
+- Alternatively, the following docker image and CWLTool can be used
+Running command (CWL, Docker Image, etc.)
 
-We want to be able to build a graph representation of and visualize genomes (or portions of genomes) where structural variation might be a major contributor to overall variation.
-
-Aim 1: Build a graph representation of a genome (or part of one).
-
-Aim 2: Visualize this graph!
-
-Aim 3: Validate how well the graph representation works using simulations (deleting/inserting/mutating bases from these alternative reference sequences) or sequences from alternative dataset.
-
-Aim 4: Extend to another region, or use alternative dataset to train/construct the graph.
-
-## Data
-
-- 8 alternative MHC sequences from HGR38.
-
-- Los Alamos Labs list of HIV sequences.
-
-- Yeast genome?
-
-## Algorithm
+## Methods
+![QuickGG_Workflow](documentation/images/quickgg_flowchard.png)
 
 ### Initial Algorithm Idea: K-mers
 
-![K-mer idea](kmer_idea.jpg)
-
+![K-mer graph_concept](documentation/images/kmer_graph.png)
 
 ### Graph Representation
 
 Starting with a list of sequences
 
-![sequences](sequences.png)
+![sequences](documentation/images/sequences.png)
 
 
 1. Find all possible k-mers (of a fixed k) in all possible sequences.
 
 We create a table of every possible kmer in every sequence.
 
-![kmers](pos.png)
+![kmers](documentation/images/pos.png)
 
 2. Find which k-mers are repeats (occur multiple times in the same sequence) and get rid of them.
 
-![kmers](pos_starts.png)
+![kmers](documentation/images/pos_starts.png)
 
 3. Find which k-mers occur in multiple sequences and keep them.
 
-![kmers](n_repeats.png)
+![kmers](documentation/images/n_repeats.png)
 
 4. Order the k-mers within each sequence 
 
-![kmers](to_order.png)
+![kmers](documentation/images/to_order.png)
 
 5. Covert this to a graph-structure. (vertex: {connected vertices})
 
-![kmers](to_edge_list.png)
+![kmers](documentation/images/to_edge_list.png)
 
 #### Next steps
 
@@ -74,14 +73,15 @@ We want to experiment with different k values.
 
 ### Graph Rendering
 
-We used gephi to visualize this graph. We use the ??? settings, which optimizes graphs like this for human viewing, using physics-based rules to maximize distance between "strands".  Here are some examples below (MHC region subsampled, HIV)
+We used Gephi to visualize this graph. We use the ??? settings, which optimizes graphs like this for human viewing, using physics-based rules to maximize distance between "strands".  Here are some examples below (MHC region subsampled, HIV)
 
-![mhc graph](mhc_graph.jpg)
+## Future Work
+This work can then be extrapolated to 
 
-![mhc graph2](mhc_2.jpg)
+![mhc graph2](documentation/images/mhc_2.jpg)
 
 
-![hiv graph](hiv_graph.jpg)
+![hiv graph](documentation/images/hiv_graph.jpg)
 
 ### Understanding new sequences from the model.
 
