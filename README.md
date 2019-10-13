@@ -125,4 +125,8 @@ We would like to be able to use this graph model to be able to analyze a new seq
 We implemented an interactive large scale graph visualization web application to visualize the "k-mer" signature structure dynamically.  The direction of the arrow indicates the order of two "k-mer"s.  Each sequence segment is a node, and every pair is an edge in the graph. A file selection button is provided for uploading user-defined "k-mer" inputs.
 <img src="documentation/images/image1.png" align="left" ></a>
 <br/><br/><br/><br/><br/><br/>
-Fig: Zoom in visualization.
+<img src="documentation/images/image2.png" align="left" ></a>
+<br/><br/><br/><br/><br/><br/>
+<img src="documentation/images/image3.png" align="left" ></a>
+<br/><br/><br/><br/><br/><br/>
+
