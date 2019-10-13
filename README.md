@@ -7,7 +7,7 @@ A pipeline for making SWIft Genomes in a Graph (SWIGG) using k-mers. We follow a
 
 ## Abstract
 An automated pipeline to build graphs quickly using kmer approach.
-There are regions across the human genome that are **conserved** among species while bearing modest amount of **varability**. The dynamic characteristics of these regions are suitable for understanding relationships of genome structure among individuals and/or organisms. Such relationships are best represented with grpahs. Building graphs for genomes, or large genomic regions is computationally  expensive. Using a multi-scale approach we creat a simple algorithm and tool to build genome graphs **fast**.
+There are regions across the human genome that are **conserved** among species while bearing modest amount of **variability**. The dynamic characteristics of these regions are suitable for understanding relationships of genome structure among individuals and/or organisms. Such relationships are best represented with grpahs. Building graphs for genomes, or large genomic regions is computationally  expensive. Using a multi-scale approach we creat a simple algorithm and tool to build genome graphs **fast**.
 
 This approach captures variations in an hierarchial way. The idea is to create a sparse representation of large scale differences (anchors) so as to allow visualizing the entire genome in a succinct way. These "anchored" graphs can then be further iteratively improved to include local sequence differences, and in turn, helps us with genotyping existing variants and identifying new variants in new genomes.
 
