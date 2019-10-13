@@ -7,6 +7,7 @@ An automated pipeline to build graphs quick using kmer approach.
 There are several sequences across human genome, viruses and also among other species that have conserved and variable regions. These regions of are interest to the scientific community because of its dynamic characteristic. We want to be able to build graphs using alternative references that are representative of sequence of interest and also **fast**. One of the most common steps in building graphs requires performing multiple sequence alignment (MSA) which is computationally expensive. This step can be avoided by uisng a kmer based approach using the _**QuickGG**_ tool. 
 
 ![mhc graph](documentation/images/mhc_graph.jpg)
+
 Fig: Genome graph of MHC gene built using 128-mers and seven alternative contigs of MHC gene
 
 ## Objective 
