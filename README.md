@@ -24,27 +24,32 @@ The primary objective is to build an open-source platorm tool that builds a geno
 We can construct graph genomes of a small portion of the genome that can still lead to interesting insights and can be built, rendered, and analyzed using **memory and compute power equivalent to that of a local-CPU.**  We also want to be able to use **publicly accessible, easy-to-obtain data.**
 
 ## Getting Started
-Follow the simple three step process to build and visualize amazing graphs
+
+### Meet the Software Requirements
+- Python 3.7
+  - numpy (1.16.4)
+  - pandas (0.24.2)
+  - biopython (1.74)
+  - argparse
+  - collections
+- Gephi
+### Or Docker
+- Alternatively, the following docker image can be used
+Follow the **simple three step process** to **build and visualize** beautiful graphs using a list of fasta sequences. For our example, we use a region known to have high variation across humans - the MHC gene region which is 4.5Mb in size and known ot have conserved and variable regions.
+
 ### Download Test Data
 For test data, we will download and process seven alternative contigs of MHC sequences available from the GRCh38 genome.
 - Add Reference of dataset download
-### Requirements
-- Python 3.7
 
-### Build Graphs
-- Alternatively, the following docker image and CWLTool can be used
-Running command (CWL, Docker Image, etc.)
+### Build and Render Graphs
+We used Gephi to visualize this edge list that was created by . We use the ??? settings, which optimizes graphs like this for human visualization
 
 ## Methods
 ![QuickGG_Workflow](documentation/images/quickgg_flowchard.png)
 
 ### Initial Algorithm Idea: K-mers
-
 ![K-mer graph_concept](documentation/images/kmer_graph.png)
 
-### Graph Rendering
-
-We used Gephi to visualize this graph. We use the ??? settings, which optimizes graphs like this for human vi,Here are some examples below (MHC region subsampled, HIV)
 
 ## Future Direction
 
