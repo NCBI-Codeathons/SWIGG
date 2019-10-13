@@ -47,7 +47,7 @@ For data to construct the graph, we used the alternative sequences of the MHC re
 
 ### Build and Render Graphs
 In order to build a graph, you can run quickgg.py with the following arguments:
-```
+
 `--kmer-length (-k)`: The minimum length of a k-mer.
 
 `--fasta (-f)`: List of fasta sequence file locations.
@@ -59,7 +59,7 @@ In order to build a graph, you can run quickgg.py with the following arguments:
 `--repeat_threshold_across (-ra)`: The maximum number of repeats within any sequence for a k-mer to be kept (see example below)
 
 `--threshold (-t)`: The number of sequences a k-mer must occur in in order to be kept (see example below).
-```
+
 #### Example
 
 The various threshold parametrs are a bit confusing, so we give an example of the workflow.  Let's say we have chosen `kmer-length=2`, `repeat_threshold_within=1`, and `repeat_threshold_across=2`, and `threshold=2`.  The k-mers found in each sequence are the following (with k-mers conserved across sequences bolded).
@@ -84,13 +84,15 @@ GGTGGTAA: GG, GT, GG, GT, TA, AA
 
 GG occurs more than 1 time (repeat_threshold_within) so we throw that out.
 
+```
 AATAAGAA: GA, AA, AT, TA, AA, AG, AA,  AG
 
 GGTAATAAGG: GT, TA, AA, AT, TA, AA, AG
 
 GGTGGTAA: GT, GT, TA, AA
+```
 
-AA occurs more than 2 times (repeat_threshold_across) in at least one sequence (sequence 1), so we throw that out.  We end up with the following k-mers for each of the sequences:
+```AA``` occurs more than 2 times (repeat_threshold_across) in at least one sequence (sequence 1), so we throw that out.  We end up with the following k-mers for each of the sequences:
 
 ```
 AATAAGAA: GA, AT, TA, AG,  AG
