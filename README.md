@@ -3,9 +3,6 @@
 
 A pipeline for making SWIft Genomes in a Graph (SWIGG) using k-mers. We follow a multiscale approach to build genome graphs in an hierarchial way.
 
-
-<br/><br/><br/><br/><br/><br/>
-
 ## Abstract
 An automated pipeline to build graphs quickly using kmer approach.
 There are regions across the human genome that are **conserved** among species while bearing modest amount of **variability**. The dynamic characteristics of these regions are suitable for understanding relationships of genome structure among individuals and/or organisms. Such relationships are best represented with grpahs. Building graphs for genomes, or large genomic regions is computationally  expensive. Using a multi-scale approach we created a simple algorithm and tool to build genome graphs **fast**.
