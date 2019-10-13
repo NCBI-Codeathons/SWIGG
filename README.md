@@ -47,6 +47,7 @@ For data to construct the graph, we used the alternative sequences of the MHC re
 
 ### Build and Render Graphs
 In order to build a graph, you can run quickgg.py with the following arguments:
+```
 `--kmer-length (-k)`: The minimum length of a k-mer.
 
 `--fasta (-f)`: List of fasta sequence file locations.
@@ -58,17 +59,19 @@ In order to build a graph, you can run quickgg.py with the following arguments:
 `--repeat_threshold_across (-ra)`: The maximum number of repeats within any sequence for a k-mer to be kept (see example below)
 
 `--threshold (-t)`: The number of sequences a k-mer must occur in in order to be kept (see example below).
-
+```
 #### Example
 
 Let's say we have chosen kmer-length=5, repeat_threshold_within=1, and repeat_threshold_across=2, and threshold=2.  We choose k=5.
-
+```
 AAAATGTGAATTTTAAAATTTT: **'AAAATG'**, 'AAATGT', 'AATGTG', 'ATGTGA', 'TGTGAA', 'GTGAAT', 'TGAATT', 'GAATTT', 'AATTTT', 'ATTTTA', 'TTTTAA', 'TTTAAA', 'TTAAAA', 'TAAAAT', 'AAAATT', 'AAATTT'
-
+```
+```
 AAAATGAAAATTTAAAAATTT: **'AAAATG'**, 'AAATGA', 'AATGAA', 'ATGAAA', 'TGAAAA', 'GAAAAT', 'AAAATT', 'AAATTT', 'AATTTA', 'ATTTAA', 'TTTAAA', 'TTAAAA', 'TAAAAA', 'AAAAAT', 'AAAATT'
-
+```
+```
 AAAATGTTTAAATTTTAAATTTT: 'AAAATG', 'AAATGT', 'AATGTT', 'ATGTTT', 'TGTTTA', 'GTTTAA', 'TTTAAA', 'TTAAAT', 'TAAATT', 'AAATTT', 'AATTTT', 'ATTTTA', 'TTTTAA', 'TTTAAA', 'TTAAAT', 'TAAATT', 'AAATTT'
-
+```
 #### Use Case
 
 ```
@@ -101,7 +104,7 @@ docker pull swigg:0.0.1
 
 1. Many k-mers happen to be adjacent to each other, which actually is just one large k-mer. We would like to merge these small k-mers to a merge larger k-mers.
 2. We would also like to further improve the graph by iterating over local sequences
-3. 
+3. Now that we have a tool for generating genome graphs quickly and efficiently, it’s desirable to find the optimal parameters, e.g. size of kmer, occurrence of a kmer to determine whether it is to be retained or not. This remains challenging because there is no simple way to evaluate genome graphs. Numbers of vertices and edges can be starting points. We would like to have comprehensive investigation of potential factors.
 
 ## Other Graphs constructed
 This following are other graphs created using different set of parameters
