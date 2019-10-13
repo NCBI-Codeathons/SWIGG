@@ -28,6 +28,7 @@ For test data, we will download and process seven alternative contigs of MHC seq
 Running command (CWL, Docker Image, etc.)
 
 ## Methods
+![QuickGG_Workflow](documentation/images/quickgg_flowchard.png)
 
 ### Initial Algorithm Idea: K-mers
 
