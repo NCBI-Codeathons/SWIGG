@@ -47,17 +47,12 @@ For data to construct the graph, we used the alternative sequences of the MHC re
 ### Build and Render Graphs
 In order to build a graph, you can run swigg.py with the following arguments:
 
-`--kmer-length (-k)`: The minimum length of a k-mer.
-
-`--fasta (-f)`: List of fasta sequence file locations.
-
-`--out (-o)`: File location for the output edge file (csv format) to be written.
-
-`--repeat_threshold_within (-rw)`: The maximum number of repeats within a single sequence for a k-mer to be considered "unique" within that sequence.  (See example below)
-
-`--repeat_threshold_across (-ra)`: The maximum number of repeats within any sequence for a k-mer to be kept (see example below)
-
-`--threshold (-t)`: The number of sequences a k-mer must occur in in order to be kept (see example below).
+- `--kmer-length (-k)`: The minimum length of a k-mer.
+- `--fasta (-f)`: List of fasta sequence file locations.
+- `--out (-o)`: File location for the output edge file (csv format) to be written.
+- `--repeat_threshold_within (-rw)`: The maximum number of repeats within a single sequence for a k-mer to be considered "unique" within that sequence.  (See example below)
+- `--repeat_threshold_across (-ra)`: The maximum number of repeats within any sequence for a k-mer to be kept (see example below)
+- `--threshold (-t)`: The number of sequences a k-mer must occur in in order to be kept (see example below).
 
 #### Example
 
@@ -101,14 +96,19 @@ GGTAATAAGG: GT, TA, AT, TA, AG
 GGTGGTAA: GT, GT, TA
 ```
 
-#### Use Case
+#### Use Case using test dataset
 
 ```
-# Through GitHub Repo and meeting software requirements
+# Login through the docker image - 
+docker pull ncbicodeathons/swigg:0.0.1
+docker run -it ncbicodeathons/swigg:0.0.1 /bin/bash
+
+# Download test data
 git clone https://github.com/NCBI-Codeathons/SWIGG.git
 cd SWIGG/
 
-python3 code/swigg.py -k 50 -t 2 -rw 1 -ra 1 -o output_mhc_alt \
+# Run SWIGG
+swigg.py -k 50 -t 2 -rw 1 -ra 1 -o output_mhc_alt \
 -f test/fasta/GL000250.fa \
 test/fasta/GL000251.fa \
 test/fasta/GL000252.fa \
@@ -116,10 +116,6 @@ test/fasta/GL000253.fa \
 test/fasta/GL000254.fa \
 test/fasta/GL000255.fa \
 test/fasta/GL000256.fa 
-
-# Through Docker Image
-docker pull swigg:0.0.1
-
 ```
 
 ## Methods
