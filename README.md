@@ -36,8 +36,8 @@ We can construct graph genomes of a small portion of the genome that can still l
 #### Docker
 The Docker image with the required dependencies and the script is on DockerHub - `ncbicodeathons/swigg:0.0.1`
 The following commands can be executed to run the Docker image -
-`docker pull ncbicodeathons/swigg:0.0.1`
-`docker run -it ncbicodeathons/swigg:0.0.1 /bin/bash`
+- `docker pull ncbicodeathons/swigg:0.0.1`
+- `docker run -it ncbicodeathons/swigg:0.0.1 /bin/bash`
   
 Follow the **simple three step process** to **build and visualize** beautiful graphs using a list of fasta sequences. For our example, we use a region known to have high variation across humans - the MHC gene region which is 4.5Mb in size and known ot have conserved and variable regions.
 
@@ -45,7 +45,7 @@ Follow the **simple three step process** to **build and visualize** beautiful gr
 For data to construct the graph, we used the alternative sequences of the MHC region given in the latest reference Human Genome (HGR38). These were downloaded using NCBI accession numbers [GL000250](https://www.ncbi.nlm.nih.gov/nuccore/GL000250/), [GL000251](https://www.ncbi.nlm.nih.gov/nuccore/GL000251/), [GL000253](https://www.ncbi.nlm.nih.gov/nuccore/GL000253/), [GL000254](https://www.ncbi.nlm.nih.gov/nuccore/GL000254/), [GL000255](https://www.ncbi.nlm.nih.gov/nuccore/GL000255/) and [GL000256](https://www.ncbi.nlm.nih.gov/nuccore/GL000255/).
 
 ### Build and Render Graphs
-In order to build a graph, you can run quickgg.py with the following arguments:
+In order to build a graph, you can run swigg.py with the following arguments:
 
 `--kmer-length (-k)`: The minimum length of a k-mer.
 
